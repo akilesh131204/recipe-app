@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-100 text-charcoal-900 font-body antialiased;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Shimmer skeleton effect */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      #f3e4b0 25%,
+      #f9f0d3 50%,
+      #f3e4b0 75%
+    );
+    background-size: 200% 100%;
+    @apply animate-shimmer rounded-lg;
+  }
+
+  /* Scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-cream-200 rounded-full;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-forest-300 rounded-full;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-forest-500;
+  }
+
+  /* Recipe card */
+  .recipe-card {
+    @apply bg-white rounded-2xl overflow-hidden shadow-card transition-all duration-300 cursor-pointer;
+  }
+  .recipe-card:hover {
+    @apply shadow-card-hover -translate-y-1;
+  }
+
+  /* Tag pill */
+  .tag-pill {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-body font-500 transition-all duration-200;
+  }
+
+  /* Filter chip */
+  .filter-chip {
+    @apply tag-pill bg-cream-200 text-charcoal-700 hover:bg-forest-100 hover:text-forest-700 cursor-pointer select-none;
+  }
+  .filter-chip.active {
+    @apply bg-forest-600 text-cream-100 hover:bg-forest-700 hover:text-cream-100;
+  }
+
+  /* Section heading */
+  .section-heading {
+    @apply font-display text-2xl md:text-3xl font-bold text-charcoal-900 leading-tight;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-forest-600 text-cream-100 font-body font-500 text-sm rounded-xl
+           hover:bg-forest-700 active:bg-forest-800 transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-cream-200 text-charcoal-800 font-body font-500 text-sm rounded-xl
+           hover:bg-cream-300 active:bg-cream-400 transition-all duration-200;
+  }
+
+  /* Terra button */
+  .btn-terra {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-terra-500 text-white font-body font-500 text-sm rounded-xl
+           hover:bg-terra-600 active:bg-terra-700 transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  /* Input base */
+  .input-base {
+    @apply w-full px-4 py-3 bg-white border border-cream-300 rounded-xl text-charcoal-900 font-body text-sm
+           placeholder:text-charcoal-400 focus:outline-none focus:ring-2 focus:ring-forest-400 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  /* Glass card */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-cream-200 rounded-2xl;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-500 {
+    font-weight: 500;
+  }
+
+  /* Staggered animation delays */
+  .delay-75  { animation-delay: 75ms;  }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-225 { animation-delay: 225ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-375 { animation-delay: 375ms; }
+  .delay-450 { animation-delay: 450ms; }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Modal overlay */
+.modal-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+.modal-content {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Hero gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #1e3f21 0%, #3a7d3c 50%, #579b59 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Noise texture overlay */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Ingredient badge */
+.ingredient-badge {
+  @apply flex items-center gap-2 p-2 rounded-xl bg-cream-50 border border-cream-200 text-sm;
+}
