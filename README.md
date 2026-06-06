@@ -86,52 +86,7 @@ recipe-app/
 
 ---
 
-## 🚀 Quick Start
 
-### Prerequisites
-
-- **Node.js** v18 or higher — Download from [nodejs.org](https://nodejs.org)
-- **npm** v9+ (comes with Node.js)
-- **Git** — Download from [git-scm.com](https://git-scm.com)
-- **VS Code** — Download from [code.visualstudio.com](https://code.visualstudio.com)
-
-### 1. Clone or Download
-
-**Option A — Clone with Git:**
-```bash
-git clone https://github.com/YOUR_USERNAME/recipe-app.git
-cd recipe-app
-```
-
-**Option B — Download ZIP:**
-1. Download and extract the ZIP
-2. Open terminal and `cd` into the extracted folder
-
-### 2. Open in VS Code
-
-```bash
-code .
-```
-
-Or: Open VS Code → File → Open Folder → select `recipe-app`
-
-### 3. Install Dependencies
-
-```bash
-npm install
-```
-
-This installs React, TailwindCSS, Axios, React Router, and all dev tools.
-
-### 4. Run Locally
-
-```bash
-npm run dev
-```
-
-Open your browser at **http://localhost:5173**
-
----
 
 ## 🧪 Testing Features
 
@@ -151,86 +106,6 @@ Open your browser at **http://localhost:5173**
 | Cuisines page | Click "Cuisines" in navbar |
 | Mobile view | Resize browser or use DevTools mobile mode |
 | 404 page | Navigate to `/anything-invalid` |
-
----
-
-## 🏗 Production Build
-
-```bash
-npm run build
-```
-
-Output goes to `dist/` folder. Preview the built app:
-
-```bash
-npm run preview
-```
-
----
-
-## 🌐 Deployment on Netlify
-
-### Method 1 — Drag & Drop (Simplest)
-
-1. Run `npm run build`
-2. Go to [netlify.com](https://netlify.com) → Log in
-3. Drag the `dist/` folder onto the Netlify deploy area
-4. ✅ Your app is live!
-
-### Method 2 — GitHub + Auto Deploy (Recommended)
-
-1. Push your code to GitHub:
-```bash
-git init
-git add .
-git commit -m "Initial commit: Dishcovery Recipe App"
-git remote add origin https://github.com/YOUR_USERNAME/recipe-app.git
-git push -u origin main
-```
-
-2. Go to [netlify.com](https://netlify.com) → "Add new site" → "Import from Git"
-3. Select your GitHub repository
-4. Build settings:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-5. Click "Deploy site"
-
-The `netlify.toml` file handles SPA routing automatically — no extra config needed.
-
----
-
-## 🔧 Troubleshooting
-
-### `npm install` fails
-```bash
-# Clear npm cache
-npm cache clean --force
-# Try again
-npm install
-```
-
-### Port 5173 in use
-```bash
-# Use a different port
-npm run dev -- --port 3000
-```
-
-### Blank page on Netlify
-- Make sure `netlify.toml` is in the root folder (it's included ✅)
-- Check build command is `npm run build` and publish dir is `dist`
-
-### API not returning data
-- TheMealDB free API works without a key with `"1"` as the key
-- Check your internet connection
-- The API has occasional downtime — try again later
-- Open DevTools → Network tab to see exact error
-
-### Favorites not saving
-- Check if localStorage is available (private/incognito mode disables it)
-- Clear localStorage: DevTools → Application → Local Storage → Clear
-
----
-
 ## 🎨 Design System
 
 The app uses a custom warm editorial design:
